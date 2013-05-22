@@ -43,7 +43,7 @@ $(document).ready(function(){
 <div data-role="page" id="home">
 
 	<div data-role="header">
-		<h1>TodoJujuy.com</h1>
+		<h1>TodoJujuy.com A</h1>
 	</div><!-- /header -->
 
 	<div data-role="content" id="noticias">	
