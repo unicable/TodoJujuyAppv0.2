@@ -10,21 +10,28 @@
 $(document).ready(function(){
 	var ancho = $(window).width(); 
 	/* Sacamos el ancho de la ventana, no del documento $(document) */
-	//$("#home").css({"width": ancho});
-	//$("#noticias").css({"width": ancho});
 	$.ajax({
 	  url : 'http://www.mfunes.com.ar/index.php?callback=?',
-	  //url : 'http://www.todojujuy.com/webservice/index_m?op=loultimo&callback=?',
 	  dataType : 'jsonp',
-	  //data : data,
 	  success:function(data) {
-		  //alert(data.mensaje);
 		  $.each(data.respData,function(index,value) {
-			  $('#movie-data').append('<li id="loco" data-id="'+value.id+'"><div class="titulo" style="width:'+(ancho-10)+'px">'+value.titulo+'</div><div class="fecha" style="width:'+ancho+'px"><div class="seccion" style="color:'+value.seccion_color+'">'+value.seccion_nombre+'</div>'+ value.fecha_hora+'</div>');
+			  $('#loultimo').append('<li id="ampliarnota" data-id="'+value.id+'"><div class="titulo" style="width:'+(ancho-10)+'px">'+value.titulo+'</div><div class="fecha" style="width:'+ancho+'px"><div class="seccion" style="color:'+value.seccion_color+'">'+value.seccion_nombre+'</div>'+ value.fecha_hora+'</div>');
 			  if (value.imagen != '') {
-				  $('#movie-data').append('<div class="imagen" id="imagen" data-id="'+value.id+'"><img src="http://todojujuy.com/imagenes/'+ancho+'x300/strict/img/'+value.imagen+'" /></div>');
+				  $('#loultimo').append('<div class="imagen" id="imagen" data-id="'+value.id+'"><img src="http://todojujuy.com/imagenes/'+ancho+'x300/strict/img/'+value.imagen+'" /></div>');
 			  }
-			  $('#movie-data').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+value.resumen+'</div></li>');
+			  $('#loultimo').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+value.resumen+'</div></li>');
+		  });		  
+	  },
+	});
+
+	//Secciones
+	$.ajax({
+	  url : 'http://www.wirenetserver.com.ar/app/index.php?op=secciones&callback=?',
+	  dataType : 'jsonp',
+	  success:function(data) {		  
+		  $.each(data.respData,function(index,value) {	
+		  	  //$('#secciones').css('width',ancho);		  
+			  $('#seccion').append('<li class="item" style="color:'+value.ns_color+'" id="ampliarseccion" data-id="'+value.id+'">'+value.valor+'</li>');			  
 		  });
 		  
 	  },
@@ -32,22 +39,24 @@ $(document).ready(function(){
 });
  
 $(document).on('pagebeforeshow', '#index', function(){       
-    $(document).on('click', '#loco', function(){     
-        // store some data
+    $(document).on('click', '#ampliarnota', function(){     
+        // Guardamos el id de la nota
 		storeObject.id = $(this).attr("data-id");
 
-        //Change page
+        //Cambiamos de pagina
         $.mobile.changePage("#ampliar");
     });
+	//Idem anterior pero al hacer clic sobre imagen
 	$(document).on('click', '#imagen', function(){     
-        // store some data
+        // Guardamos el id de la nota
 		storeObject.id = $(this).attr("data-id");
 
-        //Change page
+        //Cambiamos de pagina
         $.mobile.changePage("#ampliar");
     });    
 });
 
+//Ampliar noticia
 $(document).on('pagebeforeshow', '#ampliar', function(){
     
     var ancho = $(window).width(); 
@@ -55,10 +64,7 @@ $(document).on('pagebeforeshow', '#ampliar', function(){
 	$.ajax({
 	  url : 'http://www.wirenetserver.com.ar/app/index.php?op=ampliar&id='+storeObject.id+'&callback=?',
 	  dataType : 'jsonp',
-	  //data : data,
 	  success:function(data) {
-		  //alert(data.respData.id);
-		 
 			  $('#contenido').append('<div class="titulo" style="width:'+(ancho-10)+'px">'+data.respData.titulo+'</div><div class="fecha" style="width:'+ancho+'px"><div class="seccion" style="color:'+data.respData.seccion_color+'">'+data.respData.seccion_nombre+'</div>'+ data.respData.fecha_hora+'</div>');
 			  if (data.respData.imagen != '') {
 				  $('#contenido').append('<div class="imagen"><img src="http://todojujuy.com/imagenes/'+(ancho)+'x300/strict/img/'+data.respData.imagen+'" /></div>');
@@ -68,7 +74,7 @@ $(document).on('pagebeforeshow', '#ampliar', function(){
 	});
 });
 
-// Store object
+// Vaciamos el objeto
 var storeObject = {
     id : ''
 }
@@ -86,8 +92,9 @@ var storeObject = {
             </h3>
         </div>
         
-        <div data-role="content" id="noticias">	
-            <ul data-role="listview"  id="movie-data" data-theme="a"></ul>            
+        <div data-role="content" id="noticias">	               
+            <ul data-role="listview" id="loultimo" data-theme="a"></ul> 
+            <ul data-role="listview" id="seccion"></ul>                                
         </div>
 
         <div data-theme="a" data-role="footer" data-position="fixed">
