@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.1">
+
+<name>TodoJujuy</name>
+<description>Diario Digital - Jujuy, Argentina</description>
+<icon src="icon.png" />
+<icon src="res/img/logo.png" gap:platform="android" gap:density="ldpi" />
+<icon src="res/img/logo.png" gap:platform="android" gap:density="mdpi" />
+<icon src="res/img/logo.png" gap:platform="android" gap:density="hdpi" />
+<icon src="res/img/logo.png" gap:platform="android" gap:density="xhdpi" />
+<icon src="res/img/logo.png" gap:platform="blackberry" />
+<icon src="res/img/logo.png" gap:platform="winphone" />
+<icon src="res/img/logo.png" gap:platform="webos" />
+
+<gap:splash src="splash.png" />
+<gap:splash src="res/splash/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+<gap:splash src="res/splash/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+<gap:splash src="res/splash/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+<gap:splash src="res/splash/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+
+<gap:splash src="splash/bb/splash.png" gap:platform="blackberry" />
+<gap:splash src="splash/winphone/splash.jpg" gap:platform="winphone" />
+
+<preference name="android-installLocation" value="preferExternal" />
+<preference name="splash-screen-duration" value="1000" />
+<preference name="permissions" value="none" />
+<author href="http://www.todojujuy.com" email="info@todojujuy.com">
+MF
+</author>
+
+</widget>

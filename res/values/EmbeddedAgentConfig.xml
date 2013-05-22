@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="EmbeddedAgent_applicationID">50b793df192e22000200008e</string>
+    <string name="EmbeddedAgent_configurationUpdateFrequency">0.00001</string>
+    <string name="EmbeddedAgent_delayDataUploadInterval">0</string>
+    <string name="EmbeddedAgent_sendActualDeviceIdentifier">false</string>
+
+</resources>
