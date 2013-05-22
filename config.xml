@@ -5,6 +5,9 @@
     version   = "1.0.2">
 
 <name>TodoJujuy</name>
+<author href="http://www.todojujuy.com" email="info@todojujuy.com">
+MF
+</author>
 <description>Diario Digital - Jujuy, Argentina</description>
 <icon src="icon.png" />
 <icon src="res/img/logo.png" gap:platform="android" gap:density="ldpi" />
@@ -27,8 +30,4 @@
 <preference name="android-installLocation" value="preferExternal" />
 <preference name="splash-screen-duration" value="6000" />
 <preference name="permissions" value="none" />
-<author href="http://www.todojujuy.com" email="info@todojujuy.com">
-MF
-</author>
-
 </widget>
