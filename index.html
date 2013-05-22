@@ -37,19 +37,19 @@ $(document).on('pagebeforeshow', '#index', function(){
 		storeObject.id = $(this).attr("data-id");
 
         //Change page
-        $.mobile.changePage("#second");
+        $.mobile.changePage("#ampliar");
     });
 	$(document).on('click', '#imagen', function(){     
         // store some data
 		storeObject.id = $(this).attr("data-id");
 
         //Change page
-        $.mobile.changePage("#second");
+        $.mobile.changePage("#ampliar");
     });    
 });
 
-$(document).on('pagebeforeshow', '#second', function(){
-    $('#contenido').html(storeObject.id);
+$(document).on('pagebeforeshow', '#ampliar', function(){
+    
     var ancho = $(window).width(); 
 	/* Sacamos el ancho de la ventana, no del documento $(document) */
 	$.ajax({
@@ -59,11 +59,11 @@ $(document).on('pagebeforeshow', '#second', function(){
 	  success:function(data) {
 		  //alert(data.respData.id);
 		 
-			  $('#contenido').append('<div><div class="titulo" style="width:'+(ancho-10)+'px">'+data.respData.titulo+'</div><div class="fecha" style="width:'+ancho+'px"><div class="seccion" style="color:'+data.respData.seccion_color+'">'+data.respData.seccion_nombre+'</div>'+ data.respData.fecha_hora+'</div>');
+			  $('#contenido').append('<div class="titulo" style="width:'+(ancho-10)+'px">'+data.respData.titulo+'</div><div class="fecha" style="width:'+ancho+'px"><div class="seccion" style="color:'+data.respData.seccion_color+'">'+data.respData.seccion_nombre+'</div>'+ data.respData.fecha_hora+'</div>');
 			  if (data.respData.imagen != '') {
-				  $('#contenido').append('<div class="imagen"><img src="http://todojujuy.com/imagenes/'+ancho+'x300/strict/img/'+data.respData.imagen+'" /></div>');
+				  $('#contenido').append('<div class="imagen"><img src="http://todojujuy.com/imagenes/'+(ancho)+'x300/strict/img/'+data.respData.imagen+'" /></div>');
 			  }
-			  $('#contenido').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+data.respData.cuerpo+'</div></div>');
+			  $('#contenido').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+data.respData.cuerpo+'</div>');
 	  },
 	});
 });
@@ -94,12 +94,12 @@ var storeObject = {
 
         </div>
     </div> 
-    <div data-role="page" id="second">
+    <div data-role="page" id="ampliar">
         <div data-theme="a" data-role="header">
             <h3>
                 TodoJujuy.com
             </h3>
-            <a href="#index" class="ui-btn-left">Atras</a>
+            <a href="#index" class="ui-btn-left">Atrás</a>
         </div>
 
         <div data-role="content" id="contenido">

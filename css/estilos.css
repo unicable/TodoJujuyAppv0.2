@@ -7,6 +7,10 @@
 #noticias {
 	margin:6px 0;
 }
+#contenido {
+	margin:6px 0;
+	padding:0;
+}
 .titulo {
 	text-transform:uppercase;
 	padding:6px 0;
