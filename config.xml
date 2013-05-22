@@ -25,7 +25,7 @@
 <gap:splash src="splash/winphone/splash.jpg" gap:platform="winphone" />
 
 <preference name="android-installLocation" value="preferExternal" />
-<preference name="splash-screen-duration" value="1000" />
+<preference name="splash-screen-duration" value="6000" />
 <preference name="permissions" value="none" />
 <author href="http://www.todojujuy.com" email="info@todojujuy.com">
 MF
