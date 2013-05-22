@@ -5,7 +5,6 @@
 <title>jQM Complex Demo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1"> 
 <script type='text/javascript' src="js/jquery-1.8.3.min.js"></script>
-<script type='text/javascript' src="js/jquery.getUrlParam.js"></script>
 <script type='text/javascript'>//<![CDATA[ 
 function qs(search_for) {
 	var query = window.location.search.substring(1);
@@ -18,12 +17,14 @@ function qs(search_for) {
 	}
 	return "";
 } 
-$(document).bind('pageinit',function(){
-	alert(qs("nota_id"));
+var id = 0;
+$(document).ready(function(){
 	var ancho = $(window).width(); 
+	id = qs('nota_id');
+	alert(id);
 	/* Sacamos el ancho de la ventana, no del documento $(document) */
 	$.ajax({
-	  url : 'http://www.wirenetserver.com.ar/app/index.php?op=ampliar&id='+qs("nota_id")+'&callback=?',
+	  url : 'http://www.wirenetserver.com.ar/app/index.php?op=ampliar&id='+id+'&callback=?',
 	  //url : 'http://www.todojujuy.com/webservice/index_m?op=loultimo&callback=?',
 	  dataType : 'jsonp',
 	  //data : data,
@@ -34,8 +35,11 @@ $(document).bind('pageinit',function(){
 			  if (data.respData.imagen != '') {
 				  $('#movie-data').append('<div class="imagen"><img src="http://todojujuy.com/imagenes/'+ancho+'x300/strict/img/'+data.respData.imagen+'" /></div>');
 			  }
-			  $('#movie-data').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+data.respData.cuerpo+'</div></li>');
+			  $('#movie-data').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+data.respData.cuerpo+'</div></li>');			  
 	  },
+	  error:function(a,b,c) {
+		  alert('error');
+	  }
 	});
 });
 //]]>  
@@ -45,8 +49,8 @@ $(document).bind('pageinit',function(){
 <script src="js/jquery.mobile-1.2.0.min.js"></script>
 
 </head>
-<body> 
-<div data-role="page" id="home">
+<body id="body"> 
+<div data-role="page" id="second">
 
 	<div data-role="header">
 		<h1>TodoJujuy.com A</h1>
