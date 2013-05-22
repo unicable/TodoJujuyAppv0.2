@@ -41,6 +41,7 @@ $(document).ready(function(){
 $(document).on('pagebeforeshow', '#index', function(){       
     $(document).on('click', '#ampliarnota', function(){     
         // Guardamos el id de la nota
+		storeObject.id = '';
 		storeObject.id = $(this).attr("data-id");
 
         //Cambiamos de pagina
@@ -49,6 +50,7 @@ $(document).on('pagebeforeshow', '#index', function(){
 	//Idem anterior pero al hacer clic sobre imagen
 	$(document).on('click', '#imagen', function(){     
         // Guardamos el id de la nota
+		storeObject.id = '';
 		storeObject.id = $(this).attr("data-id");
 
         //Cambiamos de pagina
@@ -59,17 +61,20 @@ $(document).on('pagebeforeshow', '#index', function(){
 //Ampliar noticia
 $(document).on('pagebeforeshow', '#ampliar', function(){
     
-    var ancho = $(window).width(); 
-	/* Sacamos el ancho de la ventana, no del documento $(document) */
+    var anchoA = $(window).width(); 
+	/* Sacamos el ancho de la ventana, no del documento $(document) */	
 	$.ajax({
 	  url : 'http://www.wirenetserver.com.ar/app/index.php?op=ampliar&id='+storeObject.id+'&callback=?',
 	  dataType : 'jsonp',
 	  success:function(data) {
-			  $('#contenido').append('<div class="titulo" style="width:'+(ancho-10)+'px">'+data.respData.titulo+'</div><div class="fecha" style="width:'+ancho+'px"><div class="seccion" style="color:'+data.respData.seccion_color+'">'+data.respData.seccion_nombre+'</div>'+ data.respData.fecha_hora+'</div>');
-			  if (data.respData.imagen != '') {
-				  $('#contenido').append('<div class="imagen"><img src="http://todojujuy.com/imagenes/'+(ancho)+'x300/strict/img/'+data.respData.imagen+'" /></div>');
-			  }
-			  $('#contenido').append('<div class="resumen" style="width:'+(ancho-10)+'px">'+data.respData.cuerpo+'</div>');
+		  $('#contenido').hide();
+		  $('#contenido').html('');
+  		  $('#contenido').show();
+		  $('#contenido').append('<div class="titulo" style="width:'+(anchoA-10)+'px">'+data.respData.titulo+'</div><div class="fecha" style="width:'+anchoA+'px"><div class="seccion" style="color:'+data.respData.seccion_color+'">'+data.respData.seccion_nombre+'</div>'+ data.respData.fecha_hora+'</div>');
+		  if (data.respData.imagen != '') {
+			  $('#contenido').append('<div class="imagen"><img src="http://todojujuy.com/imagenes/'+(anchoA)+'x300/strict/img/'+data.respData.imagen+'" /></div>');
+		  }
+		  $('#contenido').append('<div class="resumen" style="width:'+(anchoA-10)+'px">'+data.respData.cuerpo+'</div>');
 	  },
 	});
 });
@@ -97,8 +102,16 @@ var storeObject = {
             <ul data-role="listview" id="seccion"></ul>                                
         </div>
 
-        <div data-theme="a" data-role="footer" data-position="fixed">
-
+        <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+            <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+            <ul>
+                <li><a href="#" id="chat" data-icon="custom">Chat</a></li>
+                <li><a href="#" id="email" data-icon="custom">Email</a></li>
+                <li><a href="#" id="skull" data-icon="custom">Danger</a></li>
+                <li><a href="#" id="beer" data-icon="custom">Beer</a></li>
+                <li><a href="#" id="coffee" data-icon="custom">Coffee</a></li>
+            </ul>
+            </div>
         </div>
     </div> 
     <div data-role="page" id="ampliar">
