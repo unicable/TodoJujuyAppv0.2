@@ -91,10 +91,16 @@ var storeObject = {
 </head>
 <body>
     <div data-role="page" id="index">
-        <div data-theme="a" data-role="header">
+        <div data-role="header" data-theme="a" >
             <h3>
                 TodoJujuy.com
             </h3>
+            <div data-role="fieldcontain" style="position: absolute; top: 0; right: 0; margin: 0; padding: 0">
+    <select data-title="Seccion">
+      <option>Option 1</option>
+      <option>option 2</option>
+    </select>
+  </div>
         </div>
         
         <div data-role="content" id="noticias">	               
@@ -105,11 +111,11 @@ var storeObject = {
         <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
             <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
             <ul>
-                <li><a href="#" id="chat" data-icon="custom">Chat</a></li>
-                <li><a href="#" id="email" data-icon="custom">Email</a></li>
-                <li><a href="#" id="skull" data-icon="custom">Danger</a></li>
-                <li><a href="#" id="beer" data-icon="custom">Beer</a></li>
-                <li><a href="#" id="coffee" data-icon="custom">Coffee</a></li>
+                <li><a href="#" id="chat" data-icon="info">Info</a></li>
+                <li><a href="#" id="email" data-icon="info">Email</a></li>
+                <li><a href="#" id="skull" data-icon="info">Info</a></li>
+                <li><a href="#" id="beer" data-icon="info">Info</a></li>
+                <li><a href="#" id="coffee" data-icon="info">Info</a></li>
             </ul>
             </div>
         </div>

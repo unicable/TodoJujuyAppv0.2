@@ -59,3 +59,18 @@
 	font-size:12px;
 	border-top:1px dotted #9D9D9D
 }
+
+#header ul ul { /* Menu Item List */
+    position: absolute; /* Position absolutely */
+    display: none; /* Hide */
+    z-index:500; /* Ensure visibility over other elements on page */
+    margin-top: 0px; /* Bring menu closer to button; not needed on mobile */
+}
+#menu-right {
+    float: right;
+    margin-right:0.5em; 
+}
+#menu-right ul {
+    margin-right: 0.5em;
+    right: 0em;
+}
