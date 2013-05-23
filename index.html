@@ -36,8 +36,7 @@ $(document).ready(function(){
 	  },
 	});
 });
- 
-$(document).on('pagebeforeshow', '#index', function(){       
+      
     $(document).on('click', '#ampliarnota', function(){     
         // Guardamos el id de la nota
 		storeObject.id = '';
@@ -57,13 +56,13 @@ $(document).on('pagebeforeshow', '#index', function(){
     });
 	//Para ampliar las secciones
 	$(document).on('click', '#ampliarseccion', function(){     
-        // Guardamos el id de la nota
+        // Guardamos el id de la seccion
 		storeObject.secc = '';
 		storeObject.secc = $(this).attr("data-id");
 		//Cambiamos de pagina
         $.mobile.changePage("#ampliarsec");
     });    
-});
+
 
 //Ampliar noticia
 $(document).on('pagebeforeshow', '#ampliar', function(){
