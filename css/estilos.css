@@ -1,10 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-.ui-page {
-	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden; /* Chrome and Safari */
-	-moz-backface-visibility: hidden; /* Firefox */
-}
+
 #home {
 	background-color: #EEE;
 	width: 100%;
