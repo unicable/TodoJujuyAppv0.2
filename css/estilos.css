@@ -47,6 +47,18 @@
 	padding-bottom: 6px;
 	border-bottom: 1px dotted #131313;
 }
+.video {
+	font-size:11px;
+	width:100%;
+	color:#666;
+	float:left;
+	padding:6px 6px 0 6px;
+	background:#EEE;
+}
+a{
+	text-decoration:none;
+	color:#900;
+}
 #secciones {
 	border-top: 2px solid #CCC;
 	padding: 0;
