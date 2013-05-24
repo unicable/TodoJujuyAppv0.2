@@ -143,7 +143,7 @@
 		  url : 'http://www.wirenetserver.com.ar/app/index.php?op=clima&callback=?',
 		  dataType : 'jsonp',
 		  success:function(data) {
-			  contenido_clima += '<li class="clima_detalle"><div class="clima_ciudad">'+data.respData.nombre_ciudad+'</div><div class="clima_nombre">'+data.respData.nombre+'</div><div class="clima_imagen"><img src="http://www.todojujuy.com/img/clima/'+data.respData.codigo+'.png" width="95" height="95" /><div class="clima_temperatura">'+data.respData.temperatura+'º</div></div><div class="datos">Humedad</div><div class="datos">Presión</div><div class="humedad">'+data.respData.humedad+'%</div><div class="humedad">'+data.respData.presion+' hPa</div>';
+			  contenido_clima += '<li class="clima_detalle"><div class="clima_ciudad">'+data.respData.nombre_ciudad+'</div><div class="clima_nombre">'+data.respData.nombre+'</div><div class="clima_imagen"><img src="http://www.todojujuy.com/img/clima/'+data.respData.codigo+'.png" width="95" height="95" /><div class="clima_temperatura">'+data.respData.temperatura+'º</div></div><div class="datos">Humedad</div><div class="datos">Presión</div><div class="humedad">'+data.respData.humedad+'%</div><div class="humedad">'+data.respData.presion+' hPa</div><div class="sol">Salida del sol:'+data.respData.sale_sol+'<br>Puesta del sol: '+data.respData.puesta_sol+'</div>';
 			  contenido_clima += '</li>';
 			  $('#infoclima').append(contenido_clima);
 		  },
