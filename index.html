@@ -125,7 +125,7 @@
 		  dataType : 'jsonp',
 		  success:function(data) {
 			  $.each(data.respData,function(index,value) {
-				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+(anchoC-12)+'x'+altoC+'/strict/cines/'+value.imagen+'" width="'+(anchoC-12)+'" heigth="'+altoC+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-10)+'px">'+value.descripcion+'</div>';
+				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+anchoC+'x'+altoC+'/strict/cines/'+value.imagen+'" width="'+(anchoC-12)+'" heigth="'+altoC+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-10)+'px">'+value.descripcion+'</div>';
 				  //if (value.youtube != '' && value.youtube != null) {
 //				  	contenido_cines += '<div class="trailer"><iframe width="'+(anchoC-20)+'" height="'+altoC+'" src="http://www.youtube.com/embed/'+value.youtube+'" frameborder="0" allowfullscreen></iframe></div>'; 
 //				  }
