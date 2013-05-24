@@ -99,9 +99,15 @@
 			  $('#ampliarsec .tituloseccion').html(data.respSeccion.ns_nombre);    
 			  $.each(data.respData,function(index,value) {			  
 				  $('#notasseccion').append('<li id="ampliarnota" data-id="'+value.id+'"><div class="titulo" style="width:'+(anchoS-10)+'px">'+value.titulo+'</div><div class="fecha" style="width:'+anchoS+'px">'+ value.fecha_hora+'</div>');				
-				  if (value.image != '' || value.image != null) {
-					  $('#notasseccion').append('<div class="imagen" data-id="'+value.id+'"><img src="http://todojujuy.com/imagenes/'+anchoS+'x300/strict/img/'+value.imagen+'" /></div>');
-				  }					    
+				  
+				  if (value.id_video_youtube != '') {
+					  
+				  }
+				  else {
+					  if (value.image != '' || value.image != null) {
+						  $('#notasseccion').append('<div class="imagen" data-id="'+value.id+'"><img src="http://todojujuy.com/imagenes/'+anchoS+'x300/strict/img/'+value.imagen+'" /></div>');
+					  }	
+				  }
 				  $('#notasseccion').append('<div class="resumen" style="width:'+(anchoS-10)+'px">'+value.resumen+'</div></li>');
 			  });		  
 		  },
