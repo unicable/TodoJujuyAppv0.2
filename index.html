@@ -111,7 +111,7 @@
 	//Cines
 	$(document).on('pagebeforeshow', '#cines', function(){	
 		var anchoC = $(window).width()-20; 
-		var altoC = Math.floor(anchoC * 1.333333333);
+		var altoC = Math.floor(anchoC * 0.733333333);
 		/* Sacamos el ancho de la ventana, no del documento $(document) */
 		var contenido_cines = '';
 		$.ajax({
@@ -119,13 +119,13 @@
 		  dataType : 'jsonp',
 		  success:function(data) {
 			  $.each(data.respData,function(index,value) {
-				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+anchoC+'x'+altoC+'/cines/'+value.imagen+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-10)+'px">'+value.descripcion+'</div>';
-				  if (value.youtube != '' && value.youtube != null) {
-				  	contenido_cines += '<div class="trailer"><iframe width="'+(anchoC-20)+'" height="'+altoC+'" src="http://www.youtube.com/embed/'+value.youtube+'" frameborder="0" allowfullscreen></iframe></div>'; 
-				  }
+				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+(anchoC-12)+'x'+altoC+'/strict/cines/'+value.imagen+'" width="'+(anchoC-12)+'" heigth="'+altoC+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-10)+'px">'+value.descripcion+'</div>';
+				  //if (value.youtube != '' && value.youtube != null) {
+//				  	contenido_cines += '<div class="trailer"><iframe width="'+(anchoC-20)+'" height="'+altoC+'" src="http://www.youtube.com/embed/'+value.youtube+'" frameborder="0" allowfullscreen></iframe></div>'; 
+//				  }
 				  contenido_cines += '<div class="cines_donde">La podes ver en:</div>';
 				  $.each(value.cines,function(i,val) {
-					  contenido_cines += '<div class="cines_nombres" style="width:80%">'+val.nombre+': '+val.horario+'<br>'+val.direccion+'</div>';					  
+					  contenido_cines += '<div class="cines_nombres" style="width:'+(anchoC-30)+'px">'+val.nombre+': '+val.horario+'<br>'+val.direccion+'</div>';					  
 				  });
 				  contenido_cines += '</li>';				  				 
 			  });		  
@@ -176,9 +176,9 @@
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
       <ul>
         <li><a href="#index" id="chat" data-transition="fade" data-icon="home">Inicio</a></li>
-        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
-        <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
-        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Contacto</a></li>
+        <li><a href="#clima" id="clima" data-icon="clima">Clima</a></li>
+        <li><a href="#cines" id="cine" data-icon="cine">Cines</a></li>
         <li><a data-ajax="false" href="#index" id="coffee" data-icon="arrow-u">Subir</a></li>
       </ul>
     </div>
@@ -194,9 +194,9 @@
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
       <ul>
         <li><a href="#index" id="chat" data-transition="fade" data-icon="forward">Atras</a></li>
-        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Contacto</a></li>
         <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
-        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a href="#cines" id="cine" data-icon="cine">Cines</a></li>
         <li><a data-ajax="false" href="#ampliar" id="coffee" data-icon="arrow-u">Subir</a>
       </ul>
     </div>
@@ -216,9 +216,9 @@
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
       <ul>
         <li><a href="#index" id="chat" data-transition="fade" data-icon="forward">Atras</a></li>
-        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
-        <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
-        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Contacto</a></li>
+        <li><a href="#clima" id="clima" data-icon="clima">Clima</a></li>
+        <li><a href="#cines" id="cine" data-icon="cine">Cines</a></li>
         <li><a data-ajax="false" href="#ampliarsec" id="coffee" data-icon="arrow-u">Subir</a>
       </ul>
     </div>
@@ -237,7 +237,7 @@
       +54 9 388 154365470<br>
       <a href="mailto:diario@todojujuy.com">diario@todojujuy.com</a><br>
       <div class="ui-bar-c ui-corner-all ui-shadow" style="padding:1em;">
-        <div id="map_canvas" style="width:100%; height:350px;"></div>
+        
       </div>
     </div>
   </div>
@@ -245,9 +245,9 @@
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
       <ul>
         <li><a href="#index" id="chat" data-transition="fade" data-icon="forward">Atras</a></li>
-        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
-        <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
-        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Contacto</a></li>
+        <li><a href="#clima" id="clima" data-icon="clima">Clima</a></li>
+        <li><a href="#cines" id="cine" data-icon="cine">Cines</a></li>
         <li><a data-ajax="false" href="#contacto" id="coffee" data-icon="arrow-u">Subir</a>
       </ul>
     </div>
@@ -256,6 +256,7 @@
 <div data-role="page" id="cines">
   <div data-role="header" data-theme="a" >
     <h3> <img src="img/logo.png" width="140" height="38"> </h3>
+    <a data-rel="back">Atrás</a> 
   </div>
   <div data-role="content">
     <div class="cines_head">Cartelera de cines</div>
@@ -265,9 +266,9 @@
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
       <ul>
         <li><a href="#index" id="chat" data-transition="fade" data-icon="home">Inicio</a></li>
-        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
-        <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
-        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Contacto</a></li>
+        <li><a href="#clima" id="clima" data-icon="clima">Clima</a></li>
+        <li><a href="#cines" id="cine" data-icon="cine">Cines</a></li>
         <li><a data-ajax="false" href="#cines" id="coffee" data-icon="arrow-u">Subir</a></li>
       </ul>
     </div>
@@ -276,6 +277,7 @@
 <div data-role="page" id="clima">
   <div data-role="header" data-theme="a" >
     <h3> <img src="img/logo.png" width="140" height="38"> </h3>
+    <a data-rel="back">Atrás</a> 
   </div>
   <div data-role="content">
     <div class="cines_head">El clima en nuestra ciudad</div>
@@ -285,9 +287,9 @@
     <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
       <ul>
         <li><a href="#index" id="chat" data-transition="fade" data-icon="home">Inicio</a></li>
-        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
-        <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
-        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Contacto</a></li>
+        <li><a href="#clima" id="clima" data-icon="clima">Clima</a></li>
+        <li><a href="#cines" id="cine" data-icon="cine">Cines</a></li>
         <li><a data-ajax="false" href="#clima" id="coffee" data-icon="arrow-u">Subir</a></li>
       </ul>
     </div>
