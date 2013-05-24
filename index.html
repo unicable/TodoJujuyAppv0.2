@@ -87,6 +87,7 @@
 	
 	$(document).on('pagebeforeshow', '#ampliarsec', function(){		
 		var anchoS = $(window).width(); 
+		$('#notasseccion').html('');
 		/* Sacamos el ancho de la ventana, no del documento $(document) */		
 		$.ajax({
 		  url : 'http://www.wirenetserver.com.ar/app/index.php?op=ampliarseccion&id='+storeObject.secc+'&callback=?',
@@ -120,6 +121,7 @@
 		var altoC = Math.floor(anchoC * 0.733333333);
 		/* Sacamos el ancho de la ventana, no del documento $(document) */
 		var contenido_cines = '';
+		$('#infocines').html('');
 		$.ajax({
 		  url : 'http://www.wirenetserver.com.ar/app/index.php?op=cines&callback=?',
 		  dataType : 'jsonp',
@@ -145,6 +147,7 @@
 		var anchoF = $(window).width(); 
 		/* Sacamos el ancho de la ventana, no del documento $(document) */
 		var contenido_clima = '';
+		$('#infoclima').html('');
 		$.ajax({
 		  url : 'http://www.wirenetserver.com.ar/app/index.php?op=clima&callback=?',
 		  dataType : 'jsonp',
