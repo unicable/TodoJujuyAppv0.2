@@ -121,11 +121,11 @@
 			  $.each(data.respData,function(index,value) {
 				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+anchoC+'x'+altoC+'/cines/'+value.imagen+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-10)+'px">'+value.descripcion+'</div>';
 				  if (value.youtube != '' && value.youtube != null) {
-				  	contenido_cines += '<div class="trailer"><a href="http://www.youtube.com/watch?v='+value.youtube+'">Ver Trailer</a></div>'; 
+				  	contenido_cines += '<div class="trailer"><a href="http://www.youtube.com/watch?v='+value.youtube+'" target="_blank">Ver Trailer</a></div>'; 
 				  }
 				  contenido_cines += '<div class="cines_donde">La podes ver en:</div>';
 				  $.each(value.cines,function(i,val) {
-					  contenido_cines += '<div class="cines_nombres" style="width:'+(anchoC-50)+'px">'+val.nombre+': '+val.horario+'<br>'+val.direccion+'</div>';					  
+					  contenido_cines += '<div class="cines_nombres" style="width:80%">'+val.nombre+': '+val.horario+'<br>'+val.direccion+'</div>';					  
 				  });
 				  contenido_cines += '</li>';				  				 
 			  });		  
