@@ -110,7 +110,7 @@
 	
 	//Cines
 	$(document).on('pagebeforeshow', '#cines', function(){	
-		var anchoC = $(window).width(); 
+		var anchoC = $(window).width()-20; 
 		var altoC = Math.floor(anchoC * 1.333333333);
 		/* Sacamos el ancho de la ventana, no del documento $(document) */
 		var contenido_cines = '';
@@ -119,7 +119,10 @@
 		  dataType : 'jsonp',
 		  success:function(data) {
 			  $.each(data.respData,function(index,value) {
-				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+anchoC+'x'+altoC+'/cines/'+value.imagen+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-30)+'px">'+value.descripcion+'</div>'; 
+				  contenido_cines += '<li id="cines_detalle" data-id="'+value.id+'" data-transition="flip"><div class="cines_titulo" style="width:'+(anchoC-10)+'px">'+value.titulo+'</div><div class="cines_imagen"><img src="http://www.todojujuy.com/imagenes/'+anchoC+'x'+altoC+'/cines/'+value.imagen+'" /></div><div class="cines_descripcion" style="width:'+(anchoC-10)+'px">'+value.descripcion+'</div>';
+				  if (value.youtube != '' && value.youtube != null) {
+				  	contenido_cines += '<div class="trailer"><a href="http://www.youtube.com/watch?v='+value.youtube+'">Ver Trailer</a></div>'; 
+				  }
 				  contenido_cines += '<div class="cines_donde">La podes ver en:</div>';
 				  $.each(value.cines,function(i,val) {
 					  contenido_cines += '<div class="cines_nombres" style="width:'+(anchoC-50)+'px">'+val.nombre+': '+val.horario+'<br>'+val.direccion+'</div>';					  
@@ -127,6 +130,22 @@
 				  contenido_cines += '</li>';				  				 
 			  });		  
 			  $('#infocines').append(contenido_cines);
+		  },
+		});
+	});
+	
+	//Clima
+	$(document).on('pagebeforeshow', '#clima', function(){	
+		var anchoF = $(window).width(); 
+		/* Sacamos el ancho de la ventana, no del documento $(document) */
+		var contenido_clima = '';
+		$.ajax({
+		  url : 'http://www.wirenetserver.com.ar/app/index.php?op=clima&callback=?',
+		  dataType : 'jsonp',
+		  success:function(data) {
+			  contenido_clima += '<li class="clima_detalle"><div class="clima_ciudad">'+data.respData.nombre_ciudad+'</div><div class="clima_nombre">'+data.respData.nombre+'</div><div class="clima_imagen"><img src="http://www.todojujuy.com/img/clima/'+data.respData.codigo+'.png" width="95" height="95" /><div class="clima_temperatura">'+data.respData.temperatura+'º</div></div><div class="datos">Humedad</div><div class="datos">Presión</div><div class="humedad">'+data.respData.humedad+'%</div><div class="humedad">'+data.respData.presion+' hPa</div>';
+			  contenido_clima += '</li>';
+			  $('#infoclima').append(contenido_clima);
 		  },
 		});
 	});
@@ -250,6 +269,26 @@
         <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
         <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
         <li><a data-ajax="false" href="#cines" id="coffee" data-icon="arrow-u">Subir</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="clima">
+  <div data-role="header" data-theme="a" >
+    <h3> <img src="img/logo.png" width="140" height="38"> </h3>
+  </div>
+  <div data-role="content">
+    <div class="cines_head">El clima en nuestra ciudad</div>
+    <ul data-role="listview" id="infoclima" data-theme="a"></ul>   
+  </div>
+  <div data-role="footer" class="nav-glyphish-example" data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#index" id="chat" data-transition="fade" data-icon="home">Inicio</a></li>
+        <li><a href="#contacto" id="email" data-icon="mail">Email</a></li>
+        <li><a href="#clima" id="skull" data-icon="info">Clima</a></li>
+        <li><a href="#cines" id="beer" data-icon="info">Cines</a></li>
+        <li><a data-ajax="false" href="#clima" id="coffee" data-icon="arrow-u">Subir</a></li>
       </ul>
     </div>
   </div>

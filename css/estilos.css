@@ -90,3 +90,102 @@ a{
 	padding:6px;
 	line-height:28px;
 }
+
+#infocines {
+	font-size:12px;
+	padding:10px;
+}
+.cines_head {
+	font-size:16px;
+	font-weight:bold;
+	padding:8px 0;
+	width:100%;
+	border-bottom:1px dotted #1F1F1F;
+	margin-bottom:8px;
+	color:#C00;
+}
+#infocines .cines_detalle {
+	
+}
+#infocines .cines_donde {
+	color:#C00;
+	font-weight:bold;
+	font-size:11px;
+	padding:6px;
+	width:100%;
+}
+#infocines .cines_titulo {
+	padding:6px 0;
+	font-size:16px;
+	font-weight:bold;
+}
+#infocines .cines_nombres {
+	margin:6px 0;
+	padding:6px;
+	font-size:11px;
+	border:1px dashed #6C7886;
+	background:#EDEFF1;
+	color:#6C7886
+}
+#infocines .cines_descripcion {
+	padding:6px 0;
+	font-size:11px;	
+	color:#666;
+}
+#infocines .trailer {
+	width:100%;
+	margin:6px 0;
+}
+#infocines .trailer a{
+	background:#C00;
+	color:#FFF;
+	padding:4px;
+	text-transform:uppercase;
+	font-size:11px;
+	font-weight:normal;
+}
+#infoclima {
+	text-align:center;
+	width:100%;	
+	font-size:11px;
+	border:1px dotted #DFDFDF;
+	background:#FFF;
+	margin:10px 0;
+	float:left;
+}
+#infoclima .clima_detalle {	
+	margin:0 auto;
+	width:60%;
+	padding:10px;
+}
+#infoclima .clima_nombre {
+	font-size:18px;
+	font-weight:bold;
+}
+#infoclima .clima_temperatura {
+	font-size:34px;
+	color:#900;
+	font-weight:bold;
+	width:100%;
+	float:left;
+}
+#infoclima .clima_imagen {
+	width:100%;
+	float:left;
+}
+#infoclima .datos{
+	padding:6px 0 1px 0;
+	color:#1F1F1F;
+	text-align:center;	
+	width:50%;
+	float:left;
+}
+#infoclima .humedad{
+	padding:2px 0 10px 0;
+	color:#1F1F1F;
+	text-align:center;
+	font-size:13px;
+	font-weight:bold;
+	width:50%;
+	float:left;
+}
